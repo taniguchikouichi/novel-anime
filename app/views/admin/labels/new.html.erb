@@ -1,9 +1,9 @@
 <div class="container">
     <br>
-    <h1>レーベル追加</h1>
+    <h2 class="title">レーベル追加</h2>
     <%= form_for([:admin, @label]) do |label| %>
-        <%= label.text_field :label_name %>
-        <br><br>
-        <div><%= label.submit 'レーベルを作成する' %></div>
+        <div class="form"><%= label.text_field :label_name %></div>
+        <br>
+        <div class="form"><%= label.submit 'レーベルを作成する' %></div>
     <% end %>
 </div>
