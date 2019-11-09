@@ -41,5 +41,6 @@ class Admin::NovelsController < ApplicationController
     private
     def novel_params
         params.require(:novel).permit(:genre_id, :label_id, :story_id, :production_id, :setting_id, :person_id, :title, :explanation)
+    end
     
 end
