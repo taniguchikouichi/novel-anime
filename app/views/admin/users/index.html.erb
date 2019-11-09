@@ -1,0 +1,20 @@
+<div class= "container">
+    <br>
+    <div>
+        <h1 class="title">ユーザー一覧</h1>
+    </div>
+    <table class= "table">
+        <% @users.each do |user| %>
+        <tr>
+            <th>
+                <%= user.name %>
+            </th>
+            <th>
+                <%= link_to admin_user_path(user) do %>
+                <i>ユーザー詳細へ</i>
+            </th>
+            <% end %>
+        </tr>
+        <% end %>
+    </table>
+</div>
