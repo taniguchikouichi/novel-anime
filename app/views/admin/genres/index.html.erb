@@ -1,0 +1,16 @@
+<div class="container">
+    <br>
+    <h2 class="title">ジャンル一覧</h2>
+    <table class="table">
+        <% @genres.each do |genre| %>
+            <tr>
+                <th>ジャンル名</th>
+                <td><%= genre.genre_name %></td>
+                <td><%= link_to "削除", admin_genre_path(genre),method: :delete %></td>
+            </tr>
+        <% end %>
+        </table>
+        <br>
+        <div class="form"><%= link_to "ジャンル追加画面へ", new_admin_genre_path %></div>
+</div>
+

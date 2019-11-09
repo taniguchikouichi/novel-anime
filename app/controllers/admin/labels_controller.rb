@@ -10,6 +10,11 @@ class Admin::LabelsController < ApplicationController
     def create
         @label = Label.new(label_params)
         @lavel.save
+        if @label.save
+            redirect_to admin_labels_path
+        else
+            render :new
+        end
     end
 
     def destroy
