@@ -26,6 +26,7 @@ class Admin::NovelsController < ApplicationController
 
     def update
         novel = Novel.find(params[:id])
+        GenreCombination.where(novel_id:params[:id]).destroy_all
         if novel.update(novel_params)
             redirect_to admin_novel_path(novel)
         else
@@ -40,7 +41,9 @@ class Admin::NovelsController < ApplicationController
     end
     private
     def novel_params
-        params.require(:novel).permit(:genre_id, :label_id, :story_id, :production_id, :setting_id, :person_id, :title, :explanation)
+        params.require(:novel).permit(:label_id, :story_id, :production_id,
+                                        :setting_id, :person_id, :title, :explanation,
+                                        genre_combinations_attributes: [:id, :genre_id, :_destroy])
     end
     
 end
