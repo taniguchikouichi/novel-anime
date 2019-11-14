@@ -64,10 +64,10 @@ gem 'devise'
 gem 'ransack'
 gem 'kaminari','~> 1.1.1'
 gem 'paranoia'
+gem 'jquery-rails'
 gem 'cocoon'
 gem 'font-awesome-rails'
 gem 'bootstrap', '~> 4.1.1'
-gem 'jquery-rails'
 
 
 

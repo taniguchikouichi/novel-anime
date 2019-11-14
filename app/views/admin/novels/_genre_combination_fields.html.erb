@@ -1,0 +1,4 @@
+
+    <div class="form">
+        <%= f.select :genre_id, Genre.all.map {|g| [g.genre_name, g.id]} %>
+    </div>

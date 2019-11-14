@@ -1,0 +1,27 @@
+<div class="container">
+    <br>
+    <h2 class="title">小説詳細</h2>
+    <div class="box">
+        <div class="field">
+            <%= @novel.title %>
+        </div>
+        <% @novel.genres.each do |genre|%>
+            <div class="field">
+                <%= genre.genre_name %>
+            </div>
+        <% end %>
+        <div class="field">
+            <%= @novel.label.label_name %>
+            <%# 総合評価 %>
+            <%# 評価 %>
+        <div class="text">
+            <%= @novel.explanation %>
+        </div>
+    </div>
+</div>
+<div class="form">
+    <%= link_to "編集画面へ", edit_admin_novel_path(@novel) %>
+</div>
+
+
+

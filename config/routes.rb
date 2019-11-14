@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users
-  devise_for :admins
-  
+  devise_for :users, controllers: {
+    sessions:      'users/sessions',
+    passwords:     'users/password',
+    registrations: 'users/registrations'
+  }  
+  devise_for :admins, controllers: {
+      sessions:      'admins/sessions',
+      passwords:     'admins/password',
+      registrations: 'admins/registrations'
+    }  
   resources :users, only: [:index, :show, :edit, :destoroy, :update]
   resources :novels, only: [:index, :show]
   resources :reviews, only: [:index, :show, :new, :edit, :create, :update]
@@ -9,7 +16,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update, :destroy]
-    resources :novels, only: [:index, :show, :new, :edit, :create, :update, :destoroy]
+    resources :novels, only: [:index, :show, :new, :edit, :create, :update, :destroy]
     resources :genres, only: [:new, :index, :create, :destroy]
     resources :labels, only: [:new, :index, :create, :destroy]
     resources :reviews, only: [:index, :destroy]
