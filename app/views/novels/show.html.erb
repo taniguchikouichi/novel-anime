@@ -18,7 +18,8 @@
             <%= @novel.explanation %>
         </div>
     </div>
-</div>
+</div> 
 <div class="form">
-    <%= link_to "編集画面へ", edit_admin_novel_path(@novel) %>
+    <%= link_to "レビュ一覧へ", novel_reviews_path(@novel) %>
+    <%= link_to "レビューを投稿する", new_novel_review_path(@novel) %>
 </div>

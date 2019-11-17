@@ -4,7 +4,7 @@
     <% @novels.each do |novel| %>
         <br>
         <div class="box">
-            <%= link_to admin_novel_path(novel) do %>
+            <%= link_to novel_path(novel) do %>
                 <P><%= novel.title %></P>
             <% end %>
             </p>
