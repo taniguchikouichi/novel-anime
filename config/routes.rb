@@ -9,17 +9,19 @@ Rails.application.routes.draw do
       passwords:     'admins/password',
       registrations: 'admins/registrations'
     }  
-  resources :users, only: [:index, :show, :edit, :destoroy, :update]
-  resources :novels, only: [:index, :show]
-  resources :reviews, only: [:index, :show, :new, :edit, :create, :update]
+  resources :users, only: [:edit, :destoroy, :update]
+  resources :novels, only: [:index, :show] do
+  resources :reviews, only: [:index, :show, :new, :edit, :create, :update, :destroy]
+  end
   resources :favorites, only: [:index, :create, :index]
 
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update, :destroy]
-    resources :novels, only: [:index, :show, :new, :edit, :create, :update, :destroy]
     resources :genres, only: [:new, :index, :create, :destroy]
     resources :labels, only: [:new, :index, :create, :destroy]
-    resources :reviews, only: [:index, :destroy]
+    resources :novels, only: [:index, :show, :new, :edit, :create, :update, :destroy] do
+    resources :reviews, only: [:index, :edit, :update, :destroy]
+    end
     get  'top' => 'homes#top'
     get  'out/users/:id', to: 'users#out', as: :out
 
