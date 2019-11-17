@@ -10,8 +10,7 @@
                 <%= user.name %>
             </th>
             <th>
-                <%= link_to admin_user_path(user) do %>
-                <i>ユーザー詳細へ</i>
+                <%= link_to "編集画面へ", edit_admin_user_path(user) do %>
             </th>
             <% end %>
         </tr>
