@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_08_104832) do
+ActiveRecord::Schema.define(version: 2019_11_16_085104) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -18,6 +18,11 @@ ActiveRecord::Schema.define(version: 2019_11_08_104832) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
@@ -68,9 +73,12 @@ ActiveRecord::Schema.define(version: 2019_11_08_104832) do
     t.integer "novel_id"
     t.string "title"
     t.string "text"
-    t.float "evaluation"
+    t.float "story_rate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "production_rate"
+    t.float "setting_rate"
+    t.float "person_rate"
   end
 
   create_table "users", force: :cascade do |t|

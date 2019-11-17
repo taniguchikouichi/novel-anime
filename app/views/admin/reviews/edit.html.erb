@@ -1,0 +1,102 @@
+<div class="container">
+    <br>
+    <h2 class="title">レビューを編集する</h2>
+    <br>
+    <%= form_for @review, url: "/admin/novels/#{@review.novel.id}/reviews/#{@review.id}" do |review| %>
+        <div class="row">
+            <%= review.label :title, 'タイトル', class:'col-md-3 col-form-label' %>
+            <div class="col-md-9">
+                <%= review.text_field :title, class: "form-control" %>
+            </div>
+        </div>
+        <br>
+
+
+        <div class="row">
+            <%= review.label :story_rate, '物語の評価 ', class:'col-md-3 col-form-label' %>
+            <div class="col-md-9" id="story_star">
+                <%= review.hidden_field :story_rate, id: :review_star %>
+            </div>
+        </div>
+
+        <div class="row">
+            <%= review.label :production_rate, '演出の評価 ', class:'col-md-3 col-form-label' %>
+            <div class="col-md-9" id="production_star">
+                <%= review.hidden_field :production_rate, id: :review_star %>
+            </div>
+        </div>
+
+        <div class="row">
+            <%= review.label :person_rate, '登場人物の評価 ', class:'col-md-3 col-form-label' %>
+            <div class="col-md-9" id="person_star">
+                <%= review.hidden_field :person_rate, id: :review_star %>
+            </div>
+        </div>
+
+        <div class="row">
+            <%= review.label :setting_rate, '設定の評価 ', class:'col-md-3 col-form-label' %>
+            <div class="col-md-9" id="setting_star">
+                <%= review.hidden_field :setting_rate, id: :review_star %>
+            </div>
+        </div>
+
+
+        <%# 評価javascript %>
+        <script>
+        $('#story_star').raty({
+            size : 45,
+            starOff: '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf : '<%= asset_path('star-half.png') %>',
+            scoreName : 'review[story_rate]',
+            half: true
+        });
+        </script>
+
+        <script>
+        $('#production_star').raty({
+            size : 45,
+            starOff: '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf : '<%= asset_path('star-half.png') %>',
+            scoreName : 'review[production_rate]',
+            half: true
+        });
+        </script>
+
+        <script>
+        $('#person_star').raty({
+            size : 45,
+            starOff: '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf : '<%= asset_path('star-half.png') %>',
+            scoreName : 'review[person_rate]',
+            half: true
+        });
+        </script>
+
+        <script>
+        $('#setting_star').raty({
+            size : 45,
+            starOff: '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf : '<%= asset_path('star-half.png') %>',
+            scoreName : 'review[setting_rate]',
+            half: true
+        });
+        </script>
+        <%# 評価end %>
+        <br>
+        <div class="row">
+            <%= review.label :text, "レビュー内容", class:'col-md-3 col-form-label' %>
+            <div class="col-md-9">
+                <%= review.text_area :text, size: "10x10", class: "form-control" %>
+            </div>
+        </div>
+        <br>
+        <div class="form">
+            <%= review.submit '編集完了' %>
+            <%= link_to "投稿を削除する", admin_novel_review_path(@review.novel.id), method: :delete %>
+        </div>
+    <% end %>
+</div>
