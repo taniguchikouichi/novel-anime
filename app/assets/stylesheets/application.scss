@@ -14,8 +14,36 @@
  *= require_self
  */
 @import "bootstrap";
+@import "font-awesome";
 
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    width: 100%;
+    background-color: rgba(184, 166, 166, 0.89);
+    top: 0;
+}
+
+ul {
+    display: flex;
+    padding-top: 15px;
+
+    li {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    list-style: none;
+    margin: auto;
+    }
+}
+
+.app_title{
+    text-align: center;
+    color: black; 
+}
 .title{ 
     text-align: center;
 }
@@ -39,5 +67,12 @@
     border: 0.01rem solid grey;
     padding: 30px;
 }
+.fa-heart {
+    color: rgb(0, 255, 115);
+    }
+
+
+    
+
 
 

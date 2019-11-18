@@ -1,6 +1,13 @@
 class ApplicationController < ActionController::Base
     before_action :configure_permitted_parameters, if: :devise_controller?
 
+    def after_sign_in_path_for(resource)
+        if admin_signed_in?
+            admin_top_path
+        else
+            novels_path
+        end
+    end
 
     # private
     # def after_sign_in_path_for(resorce)
