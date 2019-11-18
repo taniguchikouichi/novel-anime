@@ -34,6 +34,9 @@ ActiveRecord::Schema.define(version: 2019_11_16_085104) do
     t.integer "novel_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["novel_id"], name: "index_favorites_on_novel_id"
+    t.index ["user_id", "novel_id"], name: "index_favorites_on_user_id_and_novel_id", unique: true
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "genre_combinations", force: :cascade do |t|

@@ -1,7 +1,7 @@
 <div class="container">
     <br>
-    <h2 class="title">小説一覧</h2>
-    <% @novels.each do |novel| %>
+    <h2 class="title">お気に入り一覧</h2>
+    <% @user.novels.each do |novel|%>    
         <br>
         <div class="box">
             <%= link_to novel_path(novel) do %>
@@ -30,3 +30,4 @@
     <% end %>
     <br>
 </div>
+
