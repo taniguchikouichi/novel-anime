@@ -9,11 +9,12 @@ Rails.application.routes.draw do
       passwords:     'admins/password',
       registrations: 'admins/registrations'
     }  
-  resources :users, only: [:edit, :destoroy, :update]
+  resources :users, only: [:show, :edit, :destoroy, :update]
   resources :novels, only: [:index, :show] do
-  resources :reviews, only: [:index, :show, :new, :edit, :create, :update, :destroy]
+    resources :reviews, only: [:index, :show, :new, :edit, :create, :update, :destroy]
   end
   resources :favorites, only: [:index, :create, :index]
+  get 'novels/:id/favorite' => 'novels#favorite', as: "favorite_novels"
 
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update, :destroy]
