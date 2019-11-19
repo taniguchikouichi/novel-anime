@@ -1,33 +1,43 @@
 <div class="container">
     <br>
     <h2 class="title">お気に入り一覧</h2>
-    <% @user.novels.each do |novel|%>    
         <br>
-        <div class="box">
-            <%= link_to novel_path(novel) do %>
-                <P><%= novel.title %></P>
+        <div class="row">
+            
+            <% @user.novels.each do |novel| %>
+                <div class="col-md-4">
+                    <div class="card-deck">
+                        <div class="card">
+                            <h5 class="card-title">
+                                <%= link_to novel_path(novel) do %> 
+                                    <P><%= novel.title %></P>
+                                <% end %> 
+                            </h5>
+                            <%# 総合評価 %>
+                                <h5>あらすじ</h5>
+                                <hr>
+                                <p class="card-text"><%= novel.explanation %></p>
+                                <p class="card-text">
+                                    <% if novel.favorited_by?(current_user) %>
+                                        <div>
+                                            <%= link_to favorite_novels_path(novel), class: "fav", remote: true do %>
+                                                <i class="fa fa-heart" id="<%= novel.id %>">お気に入り</i>
+                                            <% end %>
+                                        </div>
+                                    <% else %>
+                                        <div>
+                                            <%= link_to favorite_novels_path(novel), class: "fav", remote: true do %>
+                                                <i class="fa fa-heart-o" id="<%= novel.id %>">お気に入り</i>
+                                            <% end %>
+                                        </div>
+                                    <% end %>
+                                </p>
+                        </div>
+                    </div>
+                </div>
             <% end %>
-            </p>
-            <%# 総合評価 %>
-            <div>
-                <p><%= novel.explanation %></p>
-            </div>
         </div>
-        
-        <% if novel.favorited_by?(current_user) %>
-            <div>
-                <%= link_to favorite_novels_path(novel), class: "fav", remote: true do %>
-                    <i class="fa fa-heart" id="<%= novel.id %>">お気に入り</i>
-                <% end %>
-            </div>
-        <% else %>
-            <div>
-                <%= link_to favorite_novels_path(novel), class: "fav", remote: true do %>
-                    <i class="fa fa-heart-o" id="<%= novel.id %>">お気に入り</i>
-                <% end %>
-            </div>
-        <% end %>
-    <% end %>
-    <br>
+            
+    
+        <br>
 </div>
-

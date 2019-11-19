@@ -1,17 +1,19 @@
 <div class="container">
     <br>
-    <h2>ユーザー編集</h1>
+    <h2 class=title>ユーザー編集</h1>
     <br>
     <%= form_for(@user) do |user| %>
         <div class="form">
             <P>ユーザー名</P>
             <%= user.text_field :name %>
         </div>
+        <br>
         <div class="form">
             <%= user.submit "保存する" %>
         </div>
+        <br>
         <div class="form">
-            <%= link_to "退会する", user_path(user), method: :delete %>
+            <%= link_to "退会する", user_path(user), method: :delete, data: {confirm: '本当に削除しますか？'} %>
         </div>
     <% end %>
 </div>

@@ -1,12 +1,14 @@
 <div class="container">
     <br>
+    
     <h2 class="title">ジャンル一覧</h2>
+    <br>
     <table class="table">
         <% @genres.each do |genre| %>
             <tr>
                 <th>ジャンル名</th>
                 <td><%= genre.genre_name %></td>
-                <td><%= link_to "削除", admin_genre_path(genre),method: :delete %></td>
+                <td><%= link_to "削除", admin_genre_path(genre),method: :delete, data: {confirm: '本当に削除しますか？'} %> </td>
             </tr>
         <% end %>
         </table>
