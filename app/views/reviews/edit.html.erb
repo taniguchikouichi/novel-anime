@@ -96,7 +96,7 @@
         <br>
         <div class="form">
             <%= review.submit '編集完了' %>
-            <%= link_to "投稿を削除する", novel_review_path(@review.novel.id), method: :delete %>
+            <%= link_to "投稿を削除する", novel_review_path(@review.novel.id), method: :delete, data: {confirm: '本当に削除しますか？'} %> 
         </div>
     <% end %>
 </div>
