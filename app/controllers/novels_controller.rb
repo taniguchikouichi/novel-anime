@@ -1,4 +1,6 @@
 class NovelsController < ApplicationController
+    before_action :authenticate_user!
+
     def index
         @novels = Novel.all
     end
