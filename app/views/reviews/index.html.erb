@@ -4,9 +4,7 @@
     <% @reviews.each do |review|%>
         <br>
         <div class="row review">
-            <%# <div class="col-md-3">
-                <%= review.user.name %>
-            <%# </div> %> 
+            
             <br><br>
             <div class="col-md-6">
                 <h5>総合評価</h5>
@@ -79,6 +77,7 @@
                         half: true
                     });
                     </script>
+                    <%# ここまでjavascript %>
                 </div>
                 <div class="col-md-12">
                     <h3><%= review.title %></h3>
@@ -91,5 +90,6 @@
                         <%= link_to "編集する", edit_novel_review_path(review.novel, review) %>
                     </div>
                 <% end %>
+        </div>
     <% end %>
 </div>

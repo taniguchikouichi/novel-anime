@@ -16,7 +16,9 @@
 @import "bootstrap";
 @import "font-awesome";
 
-
+.submit {
+    color: black;
+}
 * {
     margin: 0;
     padding: 0;
@@ -56,8 +58,12 @@ ul {
     text-align: center;
 }
 
+.card-title{
+    background-color: rgba(0, 0, 0, 0.438);
+    color: white;
+}
 .box{
-    border: 0.5rem outset rgba(175, 238, 146, 0.863);
+    border: 0.5rem outset rgba(235, 235, 235, 0.863);
 }
 .text{
     border: 0.01rem solid grey;
@@ -70,6 +76,20 @@ ul {
 .fa-heart {
     color: rgb(0, 255, 115);
     }
+
+.p_box{
+    border-bottom: 1px solid rgb(128, 128, 128);
+    padding-bottom: 5px;
+}
+
+.p_text{
+    margin: 0;
+}
+
+.log{
+    background-color: black;
+    color: black;
+}
 
 
     

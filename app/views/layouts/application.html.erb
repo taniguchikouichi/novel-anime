@@ -13,30 +13,33 @@
     <header>
       <div class="container">
         <nav>
-          <br>
-          <div class="app_title">
-            <h2>Novel Anime</h2>
-          </div>
-            <ul class="nav-list">
-                <li class="nav-list-item">
-                    <span>            
-                    <%= link_to edit_user_path(current_user.id) do %>
-                    <p>ようこそ、<br>
-                    <%= current_user.name %>さん</p>
-                    <% end %>
-                    </span>
-                </li>
-                <li class="nav-list-item">
-                    <span>
-                    <%= link_to "お気に入り一覧", user_path(current_user.id) %>
-                    </span>
-                </li>
-                <li class="nav-list-item">
-                <span>
-                <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-                </span>
-                </li>
-            </ul>
+          <% if user_signed_in? %>
+
+            <br>
+            <div class="app_title">
+              <h2>Novel Anime</h2>
+            </div>
+              <ul class="nav-list">
+                  <li class="nav-list-item">
+                      <span>            
+                      <%= link_to edit_user_path(current_user.id) do %>
+                      <p>ようこそ、<br>
+                      <%= current_user.name %>さん</p>
+                      <% end %>
+                      </span>
+                  </li>
+                  <li class="nav-list-item">
+                      <span>
+                      <%= link_to "お気に入り一覧", user_path(current_user.id) %>
+                      </span>
+                  </li>
+                  <li class="nav-list-item">
+                  <span>
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                  </span>
+                  </li>
+              </ul>
+            <% end %>
         </nav>
       </div>
     </header>
