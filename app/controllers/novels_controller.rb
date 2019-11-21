@@ -9,6 +9,8 @@ class NovelsController < ApplicationController
         @novel = Novel.find(params[:id])
     end
 
+    
+
     def favorite
         novel = Novel.find(params[:id])
         if novel.favorited_by?(current_user)
@@ -21,4 +23,10 @@ class NovelsController < ApplicationController
             render json: novel.id
         end
     end
+
+    def ranks
+        @rank = Novel.find(Favorite.group(:novel_id).order('count(novel_id) desc').limit(10).pluck(:novel_id))
+        @rate_rank = Novel.find(Review.group(:novel_id).order('avg("story_rate") + avg("person_rate") + avg("production_rate") + avg("setting_rate") desc').limit(10).pluck("novel_id"))
+    end
+
 end

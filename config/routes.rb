@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   end
   resources :favorites, only: [:index, :create, :index]
   get 'novels/:id/favorite' => 'novels#favorite', as: "favorite_novels"
+  get  'rank' => 'novels#ranks'
+
 
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update, :destroy]
@@ -25,7 +27,7 @@ Rails.application.routes.draw do
     end
     get  'top' => 'homes#top'
     get  'out/users/:id', to: 'users#out', as: :out
-
+    get  'ranks' => 'novels#rank'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
