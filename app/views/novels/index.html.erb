@@ -3,18 +3,29 @@
     <h2 class="title">小説一覧</h2>
         <br>
         <div class="row">
-            
             <% @novels.each do |novel| %>
-                <div class="col-md-4">
+                <div class="col-md-12">
+                    <br>
                     <div class="card-deck">
                         <div class="card">
                             <h5 class="card-title">
-                                <%# <%= link_to novel_path(novel) do %> 
-                                    <P><%= novel.title %></P>
-                                <%# <% end %> 
+                                <P><%= novel.title %></P>
                             </h5>
-                            <p class="p_box">総合評価 </p>
-                            <p class="p_text">公式サイト</p>
+                            
+                            <p class="p-box">総合評価 
+                                <h5 id="star-total_average-<%= novel.id %>"></h5>
+                                <script>
+                                $('#star-total_average-<%= novel.id %>').raty({
+                                    size : 100,
+                                    starOff: '<%= asset_path('star-off.png') %>',
+                                    starOn : '<%= asset_path('star-on.png') %>',
+                                    starHalf : '<%= asset_path('star-half.png') %>',
+                                    score : '<%= novel.total_average %>',
+                                    half: true
+                                });
+                                </script>
+                            </p>
+                            <p class="p-text">公式サイト</p>
                             <%# urlを表示させる記述 %>
                             <%= text_url_to_link(h(novel.url)).html_safe %>            
                                 <br>
@@ -36,6 +47,7 @@
                                             <% end %>
                                         </div>
                                     <% end %>
+                                    <%= link_to "詳細へ", novel_path(novel) %> 
                                 </p>
                         </div>
                     </div>
