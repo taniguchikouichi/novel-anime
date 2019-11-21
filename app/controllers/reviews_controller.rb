@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
 
     def index
         @reviews = Review.all
+        @novel = Novel.find(params[:novel_id])
     end
 
 

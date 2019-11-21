@@ -1,14 +1,81 @@
 
 <div class="container">
     <br>
-    <h2 class="title"><%= @novel.title %></h2>
-    <h4 class="p_box">総合評価 </h4>
-    <% @novel.genres.each do |genre|%>
-        <div>
-            <%= genre.genre_name %>
+    
+        <h2 class="title"><%= @novel.title %></h2>
+    <div class="row">
+        
+        <div class="col-md-1">
+            <p>物語</p>
+            <p>演出</p>
+            <p>登場人物</p>
+            <p>設定</p>
         </div>
-    <% end %>
-    <p class="p_text">公式サイト</p>
+        
+        <div class="col-md-1">
+
+            <p id="star-average_story-<%= @novel.id %>"></p>
+            <script>
+            $('#star-average_story-<%= @novel.id %>').raty({
+                size : 100,
+                starOff: '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+                starHalf : '<%= asset_path('star-half.png') %>',
+                score : '<%= @novel.average_story %>',
+                half: true
+            });
+            </script>
+
+            <p id="star-average_production-<%= @novel.id %>"></p>
+            <script>
+            $('#star-average_production-<%= @novel.id %>').raty({
+                size : 100,
+                starOff: '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+                starHalf : '<%= asset_path('star-half.png') %>',
+                score : '<%= @novel.average_production %>',
+                half: true
+            });
+            </script>
+
+            <p id="star-average_person-<%= @novel.id %>"></p>
+            <script>
+            $('#star-average_person-<%= @novel.id %>').raty({
+                size : 100,
+                starOff: '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+                starHalf : '<%= asset_path('star-half.png') %>',
+                score : '<%= @novel.average_person %>',
+                half: true
+            });
+            </script>
+
+            <p id="star-average_setting-<%= @novel.id %>"></p>
+            <script>
+            $('#star-average_setting-<%= @novel.id %>').raty({
+                size : 100,
+                starOff: '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+                starHalf : '<%= asset_path('star-half.png') %>',
+                score : '<%= @novel.average_setting %>',
+                half: true
+            });
+            </script>
+
+
+
+
+        </div>
+    </div>
+        
+    <hr>
+    <h4>ジャンル</h4>
+    <P class="p-box">
+        <% @novel.genres.each do |genre|%>
+            <%= genre.genre_name %>
+        <% end %>
+    </p>
+    <p class="p-text">公式サイト</p>
     <%= text_url_to_link(h(@novel.url)).html_safe %>            
         <br>
         <br>
@@ -31,6 +98,7 @@
                 </div>
             <% end %>
         </p>
+
 </div>
 <%# <div class="form"> %>
     <%# <%= link_to "一覧へ戻る", novels_path %> 
@@ -42,3 +110,4 @@
     <%= link_to "レビュ一覧へ", novel_reviews_path(@novel) %>
     <%= link_to "レビューを投稿する", new_novel_review_path(@novel) %>
 </div>
+<br>
