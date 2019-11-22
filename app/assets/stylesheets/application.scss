@@ -27,8 +27,7 @@
 
 header {
     width: 100%;
-    background-color: rgba(184, 166, 166, 0.89);
-    top: 0;
+    background-color: #343a40 !important;    top: 0;
 }
 
 ul {
@@ -100,7 +99,10 @@ ul {
     margin: 0;
 }
 
-    
+.site-name{
+    text-align: center;
+    color: white;
+} 
 
 
 
