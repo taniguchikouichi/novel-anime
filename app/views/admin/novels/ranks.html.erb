@@ -1,0 +1,100 @@
+<body>
+    <button class="fadeToggle">ランキング切り替え</button>
+    <script>
+    $(function() {
+        $('.fadeToggle').click(function(){
+            $('#fav1').fadeToggle();
+            $('#fav2').fadeToggle();
+        });
+    });
+    </script>
+    <div class="container" id="fav1">
+        <h2 class="title">お気に入りランキング</h2>
+        <div class="row">
+            <% @rank.each.with_index(1) do |rank, i| %>
+
+                <div class="col-md-12">
+                    <br>
+                    <div class="card-deck">
+                        <div class="card">
+                            <h5 class="ranking"><%= "第#{i}位"%></h5>
+                            <div class="card-title">
+                                <P><%= rank.title %></P>
+                            </div>
+                        
+                            <div class="p-box">総合評価 
+                                <h5 id="star-total_average-<%= rank.id %>"></h5>
+                                <script>
+                                $('#star-total_average-<%= rank.id %>').raty({
+                                    size : 100,
+                                    starOff: '<%= asset_path('star-off.png') %>',
+                                    starOn : '<%= asset_path('star-on.png') %>',
+                                    starHalf : '<%= asset_path('star-half.png') %>',
+                                    score : '<%= rank.total_average %>',
+                                    half: true
+                                });
+                                </script>
+                            </div>
+                            <p class="p-text">公式サイト</p>
+                            <%# urlを表示させる記述 %>
+                            <%= text_url_to_link(h(rank.url)).html_safe %>            
+                                <br>
+                                <h5>あらすじ</h5>
+
+                                
+                                <p class="card-text"><%= rank.explanation %></p>
+                                <p class="card-text">
+                                    <%= link_to "詳細へ", novel_path(rank) %> 
+                                </p>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+    <div class="container" id="fav2" style='display: none;'>
+            <h2 class="title">総合評価ランキング</h2>
+        <div class="row">
+            <% @rate_rank.each.with_index(1) do |rate, i| %>
+
+                <div class="col-md-12">
+                    <br>
+                    <div class="card-deck">
+                        <div class="card">
+                            <h5 class="ranking"><%= "第#{i}位"%></h5>
+                            <div class="card-title">
+                                <P><%= rate.title %></P>
+                            </div>
+                        
+                            <div class="p-box">総合評価 
+                                <h5 id="star-total_average-<%= rate.id %>"></h5>
+                                <script>
+                                $('#star-total_average-<%= rate.id %>').raty({
+                                    size : 100,
+                                    starOff: '<%= asset_path('star-off.png') %>',
+                                    starOn : '<%= asset_path('star-on.png') %>',
+                                    starHalf : '<%= asset_path('star-half.png') %>',
+                                    score : '<%= rate.total_average %>',
+                                    half: true
+                                });
+                                </script>
+                            </div>
+                            <p class="p-text">公式サイト</p>
+                            <%# urlを表示させる記述 %>
+                            <%= text_url_to_link(h(rate.url)).html_safe %>            
+                                <br>
+                                <h5>あらすじ</h5>
+
+                                
+                                <p class="card-text"><%= rate.explanation %></p>
+                                <p class="card-text">
+                                    <%= link_to "詳細へ", admin_novel_path(rate) %> 
+                                </p>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</body>
+
