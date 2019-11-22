@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :favorites, only: [:index, :create, :index]
   get 'novels/:id/favorite' => 'novels#favorite', as: "favorite_novels"
   get  'rank' => 'novels#ranks'
+  get 'search', to: 'novels#search'
+
 
 
   namespace :admin do
