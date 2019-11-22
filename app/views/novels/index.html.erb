@@ -12,7 +12,7 @@
                                 <P><%= novel.title %></P>
                             </h5>
                             
-                            <p class="p-box">総合評価 
+                            <div class="p-box">総合評価 
                                 <h5 id="star-total_average-<%= novel.id %>"></h5>
                                 <script>
                                 $('#star-total_average-<%= novel.id %>').raty({
@@ -24,7 +24,7 @@
                                     half: true
                                 });
                                 </script>
-                            </p>
+                            </div>
                             <p class="p-text">公式サイト</p>
                             <%# urlを表示させる記述 %>
                             <%= text_url_to_link(h(novel.url)).html_safe %>            
@@ -34,19 +34,6 @@
                                 
                                 <p class="card-text"><%= novel.explanation %></p>
                                 <p class="card-text">
-                                    <% if novel.favorited_by?(current_user) %>
-                                        <div>
-                                            <%= link_to favorite_novels_path(novel), class: "fav", remote: true do %>
-                                                <i class="fa fa-heart" id="<%= novel.id %>">お気に入り</i>
-                                            <% end %>
-                                        </div>
-                                    <% else %>
-                                        <div>
-                                            <%= link_to favorite_novels_path(novel), class: "fav", remote: true do %>
-                                                <i class="fa fa-heart-o" id="<%= novel.id %>">お気に入り</i>
-                                            <% end %>
-                                        </div>
-                                    <% end %>
                                     <%= link_to "詳細へ", novel_path(novel) %> 
                                 </p>
                         </div>

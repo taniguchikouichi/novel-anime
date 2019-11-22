@@ -1,23 +1,48 @@
 <div class="container">
     <br>
     <h2 class="title">小説一覧</h2>
-    <% @novels.each do |novel| %>
         <br>
-        <div class="box">
-            <%= link_to admin_novel_path(novel) do %>
-                <P><%= novel.title %></P>
-            <% end %>
-            </p>
-            <%# 総合評価 %>
-            <div class="text">
-                <p><%= novel.explanation %></p>
-            </div>
-        </div>
-    <% end %>
-    <div class="form">
-        <%= link_to "小説追加へ", new_admin_novel_path %>
-    </div>
-    <br>
-</div>
+        <div class="row">
+            <% @novels.each do |novel| %>
+                <div class="col-md-12">
+                    <br>
+                    <div class="card-deck">
+                        <div class="card">
+                            <h5 class="card-title">
+                                <P><%= novel.title %></P>
+                            </h5>
+                            
+                            <div class="p-box">総合評価 
+                                <h5 id="star-total_average-<%= novel.id %>"></h5>
+                                <script>
+                                $('#star-total_average-<%= novel.id %>').raty({
+                                    size : 100,
+                                    starOff: '<%= asset_path('star-off.png') %>',
+                                    starOn : '<%= asset_path('star-on.png') %>',
+                                    starHalf : '<%= asset_path('star-half.png') %>',
+                                    score : '<%= novel.total_average %>',
+                                    half: true
+                                });
+                                </script>
+                            </div>
+                            <p class="p-text">公式サイト</p>
+                            <%# urlを表示させる記述 %>
+                            <%= text_url_to_link(h(novel.url)).html_safe %>            
+                                <br>
+                                <h5>あらすじ</h5>
 
+                                
+                                <p class="card-text"><%= novel.explanation %></p>
+                                <p class="card-text">
+                                    <%= link_to "詳細へ", admin_novel_path(novel) %> 
+                                </p>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+            
+    
+        <br>
+</div>
 
