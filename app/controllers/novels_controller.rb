@@ -3,6 +3,8 @@ class NovelsController < ApplicationController
 
     def index
         @novels = Novel.all
+        @q = Novel.ransack(params[:q])
+        @novels = @q.result(distinct: true)
     end
     
     def show
@@ -29,4 +31,13 @@ class NovelsController < ApplicationController
         @rate_rank = Novel.find(Review.group(:novel_id).order('avg("story_rate") + avg("person_rate") + avg("production_rate") + avg("setting_rate") desc').limit(10).pluck("novel_id"))
     end
 
+    def search
+        @q = Novel.ransack(search_params)
+        @novels = @q.result(distinct: true)
+    end
+
+    private
+    def search_params
+        params.require(:q).permit!
+    end
 end
