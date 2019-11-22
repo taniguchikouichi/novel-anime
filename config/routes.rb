@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
-    resources :users, only: [:index, :show, :edit, :update, :destroy]
+    resources :users, only: [:index, :edit, :update, :destroy]
     resources :genres, only: [:new, :index, :create, :destroy]
     resources :labels, only: [:new, :index, :create, :destroy]
     resources :novels, only: [:index, :show, :new, :edit, :create, :update, :destroy] do
@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     end
     get  'top' => 'homes#top'
     get  'out/users/:id', to: 'users#out', as: :out
-    get  'ranks' => 'novels#rank'
+    get  'rank' => 'novels#ranks'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
