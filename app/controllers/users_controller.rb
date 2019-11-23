@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     def update
         @user = User.find(params[:id])
         if @user.update(user_params)
+            flash[:user] = "名前を変更しました。"
             redirect_to novels_path
         else
             render :edit
@@ -21,7 +22,8 @@ class UsersController < ApplicationController
 
     def destroy
         @user = User.find(params[:id])
-        @user.destroy
+        @user.destroy 
+        flash[:user] = "退会しました。"
         redirect_to novels_path
     end
     

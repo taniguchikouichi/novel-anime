@@ -1,4 +1,7 @@
 <div class="container">
+    <% if flash[:review] %>
+        <h5 class="alert alert-success"><%= flash[:review] %></h5>
+    <% end %>
     <br>
     <h2 class="title">レビュー一覧</h2>
     <% @reviews.each do |review|%>
@@ -20,74 +23,75 @@
 
             <div class="col-md-6">
                 <%# 評価javascript %>
-                <h5 id="star-rate-<%= review.id %>"></h2>
-                    <script>
-                    $('#star-rate-<%= review.id %>').raty({
-                        size : 100,
-                        starOff: '<%= asset_path('star-off.png') %>',
-                        starOn : '<%= asset_path('star-on.png') %>',
-                        starHalf : '<%= asset_path('star-half.png') %>',
-                        score : '<%= review.total_rate %>',
-                        half: true
-                    });
-                    </script>
-                    <br>
-                    <h6 id="star-story_rate-<%= review.id %>"></h2>
-                    <script>
-                    $('#star-story_rate-<%= review.id %>').raty({
-                        size : 45,
-                        starOff: '<%= asset_path('star-off.png') %>',
-                        starOn : '<%= asset_path('star-on.png') %>',
-                        starHalf : '<%= asset_path('star-half.png') %>',
-                        score : '<%= review.story_rate %>',
-                        half: true
-                    });
-                    </script>
+                <h5 id="star-rate-<%= review.id %>"></h5>
+                <script>
+                $('#star-rate-<%= review.id %>').raty({
+                    size : 100,
+                    starOff: '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                    starHalf : '<%= asset_path('star-half.png') %>',
+                    score : '<%= review.total_rate %>',
+                    half: true
+                });
+                </script>
+                <br>
+                <h6 id="star-story_rate-<%= review.id %>"></h2>
+                <script>
+                $('#star-story_rate-<%= review.id %>').raty({
+                    size : 45,
+                    starOff: '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                    starHalf : '<%= asset_path('star-half.png') %>',
+                    score : '<%= review.story_rate %>',
+                    half: true
+                });
+                </script>
 
-                    <h6 id="star-production_rate-<%= review.id %>"></h2>
-                    <script>
-                    $('#star-production_rate-<%= review.id %>').raty({
-                        size : 45,
-                        starOff: '<%= asset_path('star-off.png') %>',
-                        starOn : '<%= asset_path('star-on.png') %>',
-                        starHalf : '<%= asset_path('star-half.png') %>',
-                        score : '<%= review.production_rate %>',
-                        half: true
-                    });
-                    </script>
+                <h6 id="star-production_rate-<%= review.id %>"></h2>
+                <script>
+                $('#star-production_rate-<%= review.id %>').raty({
+                    size : 45,
+                    starOff: '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                    starHalf : '<%= asset_path('star-half.png') %>',
+                    score : '<%= review.production_rate %>',
+                    half: true
+                });
+                </script>
 
-                    <h6 id="star-person_rate-<%= review.id %>"></h2>
-                    <script>
-                    $('#star-person_rate-<%= review.id %>').raty({
-                        size : 45,
-                        starOff: '<%= asset_path('star-off.png') %>',
-                        starOn : '<%= asset_path('star-on.png') %>',
-                        starHalf : '<%= asset_path('star-half.png') %>',
-                        score : '<%= review.person_rate %>',
-                        half: true
-                    });
-                    </script>
+                <h6 id="star-person_rate-<%= review.id %>"></h2>
+                <script>
+                $('#star-person_rate-<%= review.id %>').raty({
+                    size : 45,
+                    starOff: '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                    starHalf : '<%= asset_path('star-half.png') %>',
+                    score : '<%= review.person_rate %>',
+                    half: true
+                });
+                </script>
 
-                    <h6 id="star-setting_rate-<%= review.id %>"></h2>
-                    <script>
-                    $('#star-setting_rate-<%= review.id %>').raty({
-                        size : 45,
-                        starOff: '<%= asset_path('star-off.png') %>',
-                        starOn : '<%= asset_path('star-on.png') %>',
-                        starHalf : '<%= asset_path('star-half.png') %>',
-                        score : '<%= review.setting_rate %>',
-                        half: true
-                    });
-                    </script>
-                </div>
+                <h6 id="star-setting_rate-<%= review.id %>"></h2>
+                <script>
+                $('#star-setting_rate-<%= review.id %>').raty({
+                    size : 45,
+                    starOff: '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                    starHalf : '<%= asset_path('star-half.png') %>',
+                    score : '<%= review.setting_rate %>',
+                    half: true
+                });
+                </script>
+            </div>
                 <div class="col-md-12">
                     <h3><%= review.title %></h3>
                 </div>
                 <div class="col-md-12">
                     <%= review.text %>
                 </div>
-                    <div class="form">
-                        <%= link_to "編集する", edit_admin_novel_review_path(review.novel, review) %>
-                    </div>
+                <div class="form">
+                    <%= link_to "編集する", edit_admin_novel_review_path(review.novel, review) %>
+                </div>
+        </div>
     <% end %>
 </div>
