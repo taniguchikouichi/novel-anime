@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   devise_for :admins, controllers: {
       sessions:      'admins/sessions',
       passwords:     'admins/password',
-      registrations: 'admins/registrations'
     }  
   resources :users, only: [:show, :edit, :destoroy, :update]
   resources :novels, only: [:index, :show] do
