@@ -1,4 +1,7 @@
 <div class="container">
+    <% if flash[:genre] %>
+        <h5 class="alert alert-success"><%= flash[:genre] %></h5>
+    <% end %>
     <br>
     
     <h2 class="title">ジャンル一覧</h2>
@@ -14,5 +17,9 @@
         </table>
         <br>
         <div class="form"><%= link_to "ジャンル追加画面へ", new_admin_genre_path %></div>
+        <div class="pagination">
+            <%= paginate @genres %>
+        </div>
 </div>
+
 

@@ -1,4 +1,7 @@
 <div class= "container">
+    <% if flash[:user] %>
+        <h5 class="alert alert-success"><%= flash[:user] %></h5>
+    <% end %>
     <br>
     <div>
         <h1 class="title">ユーザー一覧</h1>
@@ -16,4 +19,7 @@
         </tr>
         <% end %>
     </table>
+    <div class="pagination">
+        <%= paginate @users %>
+    </div>
 </div>
