@@ -1,32 +1,44 @@
 <div class="container">
+    <h2 class="title">トップページ</h2>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
         </div>
-        <div class="col-md-4">
+        <br>
+        <div class="col-md-3">
             <br>
-            <h2>
+            <br>
+            <h3>
                 <%= link_to "ユーザー一覧へ", admin_users_path %>
-            </h2>
+            </h3>
             <br>
-            <h2>
+            <br>
+            <h3>
                 <%= link_to "小説一覧へ", admin_novels_path %>
-            </h2>
+            </h3>
             <br>
-            <h2>
+            <br>
+            <h3>
                 <%= link_to "小説追加へ", new_admin_novel_path %>
-            </h2>
+            </h3>
+        </div>
+        <br>
+        <div class="col-md-3">
             <br>
-            <h2>
+            <br>
+            <h3>
                 <%= link_to "ジャンル追加へ", new_admin_genre_path %>
-            </h2>
+            </h3>
             <br>
-            <h2>
+            <br>
+            <h3>
                 <%= link_to "出版社追加へ", new_admin_label_path %>
-            </h2>
+            </h3>
             <br>
-            <h2>
+            <br>
+            <h3>
                 <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-            </h2>
+            </h3>
+        </div>
         </div>
         <div class="col-md-4">
         </div>
