@@ -1,4 +1,7 @@
 <div class="container">
+    <% if flash[:label] %>
+        <h5 class="alert alert-success"><%= flash[:label] %></h5>
+    <% end %>
     <br>
     <h2 class="title">レーベル一覧</h2>
         <table class="table">
@@ -15,5 +18,7 @@
     <div class="form">
         <%= link_to "レーベル追加へ", new_admin_label_path %>
     </div>
-
+    <div class="pagination">
+        <%= paginate @labels %>
+    </div>
 </div>

@@ -1,8 +1,9 @@
 class NovelsController < ApplicationController
-    before_action :authenticate_user!
+    PER = 10
+
 
     def index
-        @novels = Novel.all
+        @novels = Novel.page(params[:page]).per(PER)
         @q = Novel.ransack(params[:q])
         @novels = @q.result(distinct: true)
     end

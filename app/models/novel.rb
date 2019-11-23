@@ -1,4 +1,5 @@
 class Novel < ApplicationRecord
+    validates :title, :explanation, :url, presence: true
     belongs_to :label
     has_many :reviews
     has_many :favorites, dependent: :destroy

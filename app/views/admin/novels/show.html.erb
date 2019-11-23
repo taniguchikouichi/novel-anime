@@ -1,4 +1,7 @@
 <div class="container">
+    <% if flash[:novel] %>
+        <h5 class="alert alert-success"><%= flash[:novel] %></h5>
+    <% end %>
     <br>
     
         <h2 class="title"><%= @novel.title %></h2>
@@ -82,8 +85,9 @@
         
         <p class="card-text"><%= @novel.explanation %></p>
 </div>
-
+<br>
 <div class="form">
+    <%= link_to "レビュ一覧へ", admin_novel_reviews_path(@novel) %>
     <%= link_to "一覧画面へ", admin_novels_path %>
     <%= link_to "編集画面へ", edit_admin_novel_path(@novel) %>
 </div>

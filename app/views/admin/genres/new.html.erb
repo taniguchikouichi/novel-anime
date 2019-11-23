@@ -2,6 +2,7 @@
     <br>
     <h2 class="title">ジャンル追加</h2>
     <%= form_for([:admin, @genre]) do |genre| %>
+        <%= render 'layouts/error_messages', model: genre.object %>
         <div class="form"><%= genre.text_field :genre_name %></div>
         <br>
         <div class="form"><%= genre.submit 'ジャンルを作成する' %></div>
