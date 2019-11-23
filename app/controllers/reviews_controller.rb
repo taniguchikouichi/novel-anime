@@ -1,8 +1,9 @@
 class ReviewsController < ApplicationController
-    before_action :authenticate_user!
+    PER = 10
+    before_action :authenticate_user!, only:[:new, :edit, :create, :update, :destroy]
 
     def index
-        @reviews = Review.all
+        @reviews = Review.page(params[:page]).per(PER)
         @novel = Novel.find(params[:novel_id])
     end
 
@@ -20,6 +21,7 @@ class ReviewsController < ApplicationController
         @review = current_user.reviews.new(review_params)
         @review.novel_id = @novel.id
         if @review.save
+            flash[:review] = "レビューを投稿しました。"
             redirect_to novel_reviews_path
         else
             render :new
@@ -30,6 +32,7 @@ class ReviewsController < ApplicationController
         @novel = Novel.find(params[:novel_id])
         review = Review.find(params[:id])
         if review.update(review_params)
+            flash[:review] = "レビューを編集しました。"
             redirect_to novel_reviews_path
         else
             render :edit
@@ -40,6 +43,7 @@ class ReviewsController < ApplicationController
         @novel = Novel.find(params[:novel_id])
         review = Review.find(params[:id])
         review.destroy
+        flash[:review] = "レビューを削除しました。"
         redirect_to novel_reviews_path
     end
 

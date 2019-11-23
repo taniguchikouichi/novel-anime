@@ -1,4 +1,7 @@
 <div class="container">
+    <% if flash[:novel] %>
+        <h5 class="alert alert-success"><%= flash[:novel] %></h5>
+    <% end %>
     <br>
     <h2 class="title">小説一覧</h2>
         <br>
@@ -41,8 +44,13 @@
                 </div>
             <% end %>
         </div>
-            
-    
-        <br>
+    <br>
+    <div class="form">
+        <%= link_to "小説追加へ", new_admin_novel_path %>
+    </div>
+    <br>
+    <div class="pagination">
+        <%= paginate @novels %>
+    </div>
 </div>
 

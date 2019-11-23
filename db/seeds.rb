@@ -15,3 +15,12 @@ User.create!(
 
     ]
 )
+Admin.create!(
+    [
+        {
+            password: 'novani',
+            email: 'test@test'
+        }
+
+    ]
+)

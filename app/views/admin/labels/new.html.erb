@@ -2,6 +2,7 @@
     <br>
     <h2 class="title">レーベル追加</h2>
     <%= form_for([:admin, @label]) do |label| %>
+        <%= render 'layouts/error_messages', model: label.object %>
         <div class="form"><%= label.text_field :label_name %></div>
         <br>
         <div class="form"><%= label.submit 'レーベルを作成する' %></div>

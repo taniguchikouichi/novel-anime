@@ -1,10 +1,12 @@
 class Admin::NovelsController < ApplicationController
+    # before_action :authenticate_admin!
+    PER = 10
     def new
         @novel = Novel.new
     end
 
     def index
-        @novels = Novel.all
+        @novels = Novel.page(params[:page]).per(PER)
     end
 
     def show
@@ -18,6 +20,7 @@ class Admin::NovelsController < ApplicationController
     def create
         @novel = Novel.new(novel_params)
         if @novel.save
+            flash[:novel] = "小説を作成しました。"
             redirect_to admin_novel_path(@novel)
         else
             render :new
@@ -28,6 +31,7 @@ class Admin::NovelsController < ApplicationController
         novel = Novel.find(params[:id])
         GenreCombination.where(novel_id:params[:id]).destroy_all
         if novel.update(novel_params)
+            flash[:novel] = "小説を編集しました。"
             redirect_to admin_novel_path(novel)
         else
             render :edit
@@ -36,6 +40,7 @@ class Admin::NovelsController < ApplicationController
 
     def destroy
         novel = Novel.find(params[:id])
+        flash[:novel] = "小説を削除しました。"
         novel.destroy
         redirect_to admin_novels_path
     end

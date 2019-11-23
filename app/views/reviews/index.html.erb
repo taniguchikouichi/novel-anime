@@ -1,4 +1,7 @@
 <div class="container">
+    <% if flash[:review] %>
+        <h5 class="alert alert-success"><%= flash[:review] %></h5>
+    <% end %>
     <br>
     <h2 class="title">レビュー一覧</h2>
     <% @novel.reviews.each do |review|%>
@@ -18,7 +21,7 @@
 
             <div class="col-md-6">
                 <%# 評価javascript %>
-                <h5 id="star-rate-<%= review.id %>"></h2>
+                <h5 id="star-rate-<%= review.id %>"></h5>
                     <script>
                     $('#star-rate-<%= review.id %>').raty({
                         size : 100,
@@ -94,4 +97,7 @@
                 <% end %>
         </div>
     <% end %>
+    <div class="paginate">
+        <%= paginate @reviews %>
+    </div>
 </div>
