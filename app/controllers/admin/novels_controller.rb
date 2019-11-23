@@ -61,8 +61,7 @@ class Admin::NovelsController < ApplicationController
     end
 
     def novel_params
-        params.require(:novel).permit(:label_id, :story_id, :production_id,
-                                        :setting_id, :persozn_id, :title, :explanation, :url,
+        params.require(:novel).permit(:label_id, :title, :explanation, :url,
                                         genre_combinations_attributes: [:id, :genre_id, :_destroy])
     end
     

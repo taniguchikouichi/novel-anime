@@ -59,12 +59,7 @@ ActiveRecord::Schema.define(version: 2019_11_19_024017) do
   end
 
   create_table "novels", force: :cascade do |t|
-    t.integer "genre_id"
     t.integer "label_id"
-    t.integer "story_id"
-    t.integer "production_id"
-    t.integer "setting_id"
-    t.integer "person_id"
     t.string "title"
     t.string "explanation"
     t.datetime "created_at", null: false
