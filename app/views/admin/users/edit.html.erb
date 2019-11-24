@@ -1,15 +1,20 @@
 <div class="container">
     <br>
-    <h2>ユーザー編集</h1>
+    <h2 class="title">ユーザー編集</h2>
     <br>
     <%= form_for([:admin, @user]) do |user| %>
+        <%= render 'layouts/error_messages', model: user.object %>
+        <br>
         <div class="form">
             <P>ユーザー名</P>
             <%= user.text_field :name %>
         </div>
+        <br>
         <div class="form">
             <%= user.submit "保存する" %>
         </div>
+        <br>
+        <br>
         <div class="form">
             <%= link_to "削除する", admin_out_path(@user) %>
         </div>

@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     def set_search
         #@search = Novel.search(params[:q])
         @search = Novel.ransack(params[:q]) #ransackメソッド推奨
-        @search_novels = @search.result.all
+        @search_novels = @search.result.includes(:genres)
     end
 
     # private
