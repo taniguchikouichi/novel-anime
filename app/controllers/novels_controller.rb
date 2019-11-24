@@ -34,6 +34,7 @@ class NovelsController < ApplicationController
 
     def search
         @q = Novel.ransack(search_params)
+        @genres = Genre.all
         @novels = @q.result(distinct: true)
     end
 

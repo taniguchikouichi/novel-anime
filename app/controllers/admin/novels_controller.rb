@@ -28,11 +28,11 @@ class Admin::NovelsController < ApplicationController
     end
 
     def update
-        novel = Novel.find(params[:id])
+        @novel = Novel.find(params[:id])
         GenreCombination.where(novel_id:params[:id]).destroy_all
-        if novel.update(novel_params)
+        if @novel.update(novel_params)
             flash[:novel] = "小説を編集しました。"
-            redirect_to admin_novel_path(novel)
+            redirect_to admin_novel_path(@novel)
         else
             render :edit
         end
