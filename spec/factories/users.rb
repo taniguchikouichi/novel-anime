@@ -1,13 +1,17 @@
 FactoryBot.define do
   factory :user do
-      sequence(:email) { |n| "example#{n}@test.com" }
-      sequence(:name) { |n| "name#{n}" }
-      sequence(:introduction) { |n| "introduction#{n}" }
+      email { "example@test.com" }
+      name { "test" }
       password { password }
       password_confirmation { password }
   
       trait :no_name do
-        name {}
+        name {test}
+      end
+      trait :create_with_reviews do
+        after(:create) do |user|
+          create_list(:review, 3, user: user)
+        end
       end
   end
 end

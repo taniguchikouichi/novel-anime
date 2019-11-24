@@ -1,6 +1,6 @@
 require 'rails_helper'
 RSpec.describe User, "model test", type: :model do
-    describe 'association' do
+    describe 'アソシエーション' do
         it "has_many favorites" do
             is_expected.to have_many(:favorites)
         end
