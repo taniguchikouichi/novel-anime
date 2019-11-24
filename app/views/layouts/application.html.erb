@@ -41,34 +41,40 @@
                 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
                 </span>
                 </li>
-                <li class="nav-list-item" data-toggle="modal" data-target="#myModal2">小説検索</button>
-                  <!-- Modal -->
-                  
-                  <div id="myModal2" class="modal fade" role="dialog">
-                    <div class="modal-dialog modal-lg">
-                      <div id="modal_close_area">
-                      </div>
-                  
-                      <!-- Modal content-->
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h4 class="modal-title">検索フォーム</h4>
-                        </div>
-                        <div class="modal-body">
-                          <p>詳細検索</p>
-                          <dl class="searchbox">
-                            <%= search_form_for @search, url: novels_path do |f| %>
-                              <dt><%= f.text_field :title_cont ,placeholder: '検索するテキストを入力...' %></dt>
+
+              <li class="nav-list-item" data-toggle="modal" data-target="#myModal2">
+                <span class="link">小説検索</span>
+              </li>
+ 
+              <!-- Modal -->
+              <div id="myModal2" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-lg">
+              
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title">ヘッダー</h4>
+                    </div>
+                    <div class="modal-body">
+                      <p>詳細検索</p>
+                      <dl class="searchbox">
+                        <%= search_form_for @search, url: novels_path do |f| %>
+                          <dt><%= f.text_field :title_cont ,placeholder: '検索するテキストを入力...' %></dt>
+                              <%= f.label :genres_id_in, 'ジャンル' %>
+                              <%= f.collection_check_boxes :genres_id_in, Genre.all, :id, :genre_name %>
                               <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
-                            <% end %>
-                          </dl>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-                        </div>
-                      </div>
+                        <% end %>
+                      </dl>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
                     </div>
                   </div>
+              
+                </div>
+              </div>
+
                 </li>
             </ul>
           </nav>
@@ -128,25 +134,28 @@
                 <%= link_to "ログイン", user_session_path %>
               </span>
             </li>
-            <li class="nav-list-item" data-toggle="modal" data-target="#myModal2">小説検索</button>
+              <li class="nav-list-item" data-toggle="modal" data-target="#myModal2">
+                <span class="link">小説検索</span>
+              </li>
+ 
               <!-- Modal -->
-              
               <div id="myModal2" class="modal fade" role="dialog">
                 <div class="modal-dialog modal-lg">
-                <div id="modal_close_area">
-                </div>
               
                   <!-- Modal content-->
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h4 class="modal-title">検索フォーム</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title">ヘッダー</h4>
                     </div>
                     <div class="modal-body">
                       <p>詳細検索</p>
                       <dl class="searchbox">
                         <%= search_form_for @search, url: novels_path do |f| %>
                           <dt><%= f.text_field :title_cont ,placeholder: '検索するテキストを入力...' %></dt>
-                          <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
+                              <%= f.label :genres_id_in, 'ジャンル' %>
+                              <%= f.collection_check_boxes :genres_id_in, Genre.all, :id, :genre_name %>
+                              <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
                         <% end %>
                       </dl>
                     </div>

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       sessions:      'admins/sessions',
       passwords:     'admins/password',
     }  
-  resources :users, only: [:show, :edit, :destoroy, :update]
+  resources :users, only: [:show, :edit, :destroy, :update]
   resources :novels, only: [:index, :show] do
     resources :reviews, only: [:index, :show, :new, :edit, :create, :update, :destroy]
   end
