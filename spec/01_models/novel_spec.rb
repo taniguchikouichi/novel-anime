@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Novel, "model_test", type: :model do
-    describe 'association' do
+    describe 'アソシエーション' do
         it "hasmany review" do
             is_expected.to have_many(:reviews)
         end
@@ -24,7 +24,6 @@ RSpec.describe Novel, "model_test", type: :model do
             end
         end
         context 'バリデーション' do
-            
             it "titleが空欄" do
                 expect(build(:novel, :no_title)).to_not be_valid
             end

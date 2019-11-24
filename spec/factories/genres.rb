@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :genre do
-    sequence(:genre_name) { |n| "genre_name#{n}" }
+    genre_name { "genre_name" }
 
-    trait :genre_name do
-        no_genre_name{}
+    trait :no_genre_name do
+      genre_name{}
     end
     
   end
