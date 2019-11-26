@@ -16,9 +16,6 @@
 @import "bootstrap";
 @import "font-awesome";
 
-.submit {
-    color: black;
-}
 * {
     margin: 0;
     padding: 0;
@@ -28,6 +25,26 @@
 header {
     width: 100%;
     background-color: #343a40 !important;    top: 0;
+}
+
+footer {
+    width: 100%;
+    background-color: #343a40;
+    bottom: 0;
+    // margin-bottom: 0;
+    position: absolute;
+}
+.footer-text{
+    color: white;
+    margin-bottom: 0;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    text-align: center;
+}
+.wrapper{
+    min-height: 100vh;
+    padding-bottom: 120px;
+    position: relative;
 }
 
 ul {
@@ -117,5 +134,9 @@ ul {
 
 .link{
     color: rgba(19, 99, 247, 0.979);
+}
+
+.menu{
+    border: 1px solid grey;
 }
 

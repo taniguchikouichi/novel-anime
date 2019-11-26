@@ -9,162 +9,166 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-  
+<body>
+  <div class="wrapper">
     <header>
-    
-      <div class="container">
+      
+        <div class="container">
 
-        
-        <% if user_signed_in? %>
+          
+          <% if user_signed_in? %>
+            <nav>
+              <br>
+              <div class="app_title">
+                <h2 class="site-name">Novel Anime</h2>
+              </div>
+              <ul class="nav-list">
+                  <li class="nav-list-item">
+                      <span>            
+                      <%= link_to edit_user_path(current_user.id) do %>
+                      <p>ようこそ、<br>
+                      <%= current_user.name %>さん</p>
+                      <% end %>
+                      </span>
+                  </li>
+                  <li class="nav-list-item">
+                      <span>
+                      <%= link_to "お気に入り一覧", user_path(current_user.id) %>
+                      </span>
+                  </li>
+                  <li class="nav-list-item">
+                    <span><%= link_to "小説ランキング", rank_path %>
+                  </li>
+                  <li class="nav-list-item">
+                    <span><%= link_to "小説一覧", novels_path %>
+                  </li>
+                  <li class="nav-list-item" data-toggle="modal" data-target="#myModal2">
+                    <span class="link">小説検索</span>
+                  </li>
+                <!-- Modal -->
+                <div id="myModal2" class="modal fade" role="dialog">
+                  <div class="modal-dialog modal-lg">
+                
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                      <div class="modal-body">
+                        <p>詳細検索</p>
+                        <dl class="searchbox">
+                          <%= search_form_for @search, url: novels_path do |f| %>
+                            <dt><%= f.text_field :title_cont ,placeholder: '検索するテキストを入力...' %></dt>
+                                <%= f.label :genres_id_in, 'ジャンル' %>
+                                <%= f.collection_check_boxes :genres_id_in, Genre.all, :id, :genre_name %>
+                                <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
+                          <% end %>
+                        </dl>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                      </div>
+                    </div>
+                
+                  </div>
+                </div>
+                <li class="nav-list-item">
+                  <span>
+                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                  </span>
+                </li>
+
+                  </li>
+              </ul>
+            </nav>
+          <% elsif admin_signed_in? %>
+            <nav>
+              <br>
+              <div class="app_title">
+                <h2 class="site-name">Novel Anime</h2>
+              </div>
+              <ul class="nav-list">
+                <li class="nav-list-item">
+                  <span>
+                    <%= link_to "トップページ", admin_top_path %>
+                  </span>
+                </li>
+                <li class="nav-list-item">
+                  <span>
+                    <%= link_to "ジャンル一覧", admin_genres_path %>
+                  </span>
+                </li>
+                <li class="nav-list-item">
+                  <span>
+                    <%= link_to "出版社一覧", admin_labels_path %>
+                  </span>
+                </li>
+                <li class="nav-list-item">
+                  <span>
+                    <%= link_to "小説一覧", admin_novels_path %>
+                  </span>
+                </li>
+                <li class="nav-list-item">
+                  <%= link_to "小説ランキング", admin_rank_path %>
+                <li class="nav-list-item">
+                  <span>
+                    <%= link_to "ユーザー一覧", admin_users_path %>
+                  </span>
+                </li>
+                <li class="nav-list-item">
+                  <span>
+                    <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+                  </span>
+                </li>
+              </ul>
+            </nav>
+          <% else %>
           <nav>
             <br>
             <div class="app_title">
               <h2 class="site-name">Novel Anime</h2>
             </div>
             <ul class="nav-list">
-                <li class="nav-list-item">
-                    <span>            
-                    <%= link_to edit_user_path(current_user.id) do %>
-                    <p>ようこそ、<br>
-                    <%= current_user.name %>さん</p>
-                    <% end %>
-                    </span>
-                </li>
-                <li class="nav-list-item">
-                    <span>
-                    <%= link_to "お気に入り一覧", user_path(current_user.id) %>
-                    </span>
-                </li>
-                <li class="nav-list-item">
-                <span>
-                <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+              <li class="nav-list-item">
+                <span>            
+                  <%= link_to "新規登録", new_user_registration_path %>
                 </span>
-                </li>
-
+              </li>
+              <li class="nav-list-item">
+                <span>
+                  <%= link_to "ログイン", user_session_path %>
+                </span>
+              </li>
               <li class="nav-list-item" data-toggle="modal" data-target="#myModal2">
                 <span class="link">小説検索</span>
               </li>
- 
-              <!-- Modal -->
-              <div id="myModal2" class="modal fade" role="dialog">
-                <div class="modal-dialog modal-lg">
-              
-                  <!-- Modal content-->
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      <h4 class="modal-title">ヘッダー</h4>
-                    </div>
-                    <div class="modal-body">
-                      <p>詳細検索</p>
-                      <dl class="searchbox">
-                        <%= search_form_for @search, url: novels_path do |f| %>
-                          <dt><%= f.text_field :title_cont ,placeholder: '検索するテキストを入力...' %></dt>
-                              <%= f.label :genres_id_in, 'ジャンル' %>
-                              <%= f.collection_check_boxes :genres_id_in, Genre.all, :id, :genre_name %>
-                              <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
-                        <% end %>
-                      </dl>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-                    </div>
-                  </div>
-              
-                </div>
-              </div>
-
-                </li>
-            </ul>
-          </nav>
-        <% elsif admin_signed_in? %>
-          <nav>
-            <br>
-            <div class="app_title">
-              <h2 class="site-name">Novel Anime</h2>
-            </div>
-            <ul class="nav-list">
-              <li class="nav-list-item">
-                <span>
-                  <%= link_to "トップページ", admin_top_path %>
-                </span>
-              </li>
-              <li class="nav-list-item">
-                <span>
-                  <%= link_to "ジャンル一覧", admin_genres_path %>
-                </span>
-              </li>
-              <li class="nav-list-item">
-                <span>
-                  <%= link_to "出版社一覧", admin_labels_path %>
-                </span>
-              </li>
-              <li class="nav-list-item">
-                <span>
-                  <%= link_to "小説一覧", admin_novels_path %>
-                </span>
-              </li>
-              <li class="nav-list-item">
-                <span>
-                  <%= link_to "ユーザー一覧", admin_users_path %>
-                </span>
-              </li>
-              <li class="nav-list-item">
-                <span>
-                  <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-                </span>
-              </li>
-            </ul>
-          </nav>
-        <% else %>
-        <nav>
-          <br>
-          <div class="app_title">
-            <h2 class="site-name">Novel Anime</h2>
-          </div>
-          <ul class="nav-list">
-            <li class="nav-list-item">
-              <span>            
-                <%= link_to "新規登録", new_user_registration_path %>
-              </span>
-            </li>
-            <li class="nav-list-item">
-              <span>
-                <%= link_to "ログイン", user_session_path %>
-              </span>
-            </li>
-              <li class="nav-list-item" data-toggle="modal" data-target="#myModal2">
-                <span class="link">小説検索</span>
-              </li>
- 
-              <!-- Modal -->
-              <div id="myModal2" class="modal fade" role="dialog">
-                <div class="modal-dialog modal-lg">
-              
-                  <!-- Modal content-->
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      <h4 class="modal-title">ヘッダー</h4>
-                    </div>
-                    <div class="modal-body">
-                      <p>詳細検索</p>
-                      <dl class="searchbox">
-                        <%= search_form_for @search, url: novels_path do |f| %>
-                          <dt><%= f.text_field :title_cont ,placeholder: '検索するテキストを入力...' %></dt>
-                              <%= f.label :genres_id_in, 'ジャンル' %>
-                              <%= f.collection_check_boxes :genres_id_in, Genre.all, :id, :genre_name %>
-                              <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
-                        <% end %>
-                      </dl>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+  
+                <!-- Modal -->
+                <div id="myModal2" class="modal fade" role="dialog">
+                  <div class="modal-dialog modal-lg">
+                
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                      <div class="modal-body">
+                        <p>詳細検索</p>
+                        <dl class="searchbox">
+                          <%= search_form_for @search, url: novels_path do |f| %>
+                            <dt><%= f.text_field :title_cont ,placeholder: '検索するテキストを入力...' %></dt>
+                                <%= f.label :genres_id_in, 'ジャンル' %>
+                                <%= f.collection_check_boxes :genres_id_in, Genre.all, :id, :genre_name %>
+                                <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
+                          <% end %>
+                        </dl>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
             </li>
           </ul>
         </nav>
@@ -172,5 +176,10 @@
       </div>
     </header>
     <%= yield %>
+    <footer>
+      <p class="footer-text">Novel-Anime (CopyRight)</p>
+    </footer>
+  </div>
   </body>
+  
 </html>

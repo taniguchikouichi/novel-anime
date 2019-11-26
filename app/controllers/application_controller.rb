@@ -9,9 +9,15 @@ class ApplicationController < ActionController::Base
             novels_path
         end
     end
+    def after_sign_out_path_for(resource_or_scope)
+        if resource_or_scope == :admin
+            new_admin_session_path
+        else
+            novels_path
+        end
+    end
 
     def set_search
-        #@search = Novel.search(params[:q])
         @search = Novel.ransack(params[:q]) #ransackメソッド推奨
         @search_novels = @search.result.includes(:genres)
     end

@@ -12,7 +12,7 @@ RSpec.describe Review, "model_test", type: :model do
         context "保存できない場合" do
             user=nil
             novel=nil
-            before "準備（暫定）" do
+            before "準備" do
                 user = User.new(name:'name',email:"test@test",password:"password",
                     sign_in_count:1,)
                 user.save

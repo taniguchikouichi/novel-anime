@@ -1,5 +1,5 @@
 class Admin::ReviewsController < ApplicationController
-    # before_action :authenticate_admin!
+    before_action :authenticate_admin!
     PER = 10
     def index
         @reviews = Review.page(params[:page]).per(PER)

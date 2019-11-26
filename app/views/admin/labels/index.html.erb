@@ -4,16 +4,17 @@
     <% end %>
     <br>
     <h2 class="title">レーベル一覧</h2>
+        <br>
         <table class="table">
         <% @labels.each do |label| %>
             <tr>
                 <th>レーベル名</th>
-                <th><%= label.label_name %></th>
-                <th><%= link_to "削除", admin_label_path(label),method: :delete, data: {confirm: '本当に削除しますか？'}  %>
+                <td><%= label.label_name %></td>
+                <td><%= link_to "削除", admin_label_path(label),method: :delete, data: {confirm: '本当に削除しますか？'}  %></td>
             </tr>
         <% end %>
         </table>
-        <hr>
+        
         <br>
     <div class="form">
         <%= link_to "レーベル追加へ", new_admin_label_path %>
