@@ -10,7 +10,7 @@ User.create!(
         {
             password: '111111',
             email: 'nnn@nnn',
-            name: '谷口晃一'
+            name: 'testuser'
         }
 
     ]
