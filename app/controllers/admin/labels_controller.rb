@@ -1,5 +1,5 @@
 class Admin::LabelsController < ApplicationController
-    # before_action :authenticate_admin!
+    before_action :authenticate_admin!
     PER = 20
     def new
         @label = Label.new

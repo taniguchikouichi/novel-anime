@@ -1,6 +1,6 @@
 class Admin::GenresController < ApplicationController
-    # before_action :authenticate_admin!
-    PER = 5
+    before_action :authenticate_admin!
+    PER = 20
     def new
         @genre = Genre.new
     end

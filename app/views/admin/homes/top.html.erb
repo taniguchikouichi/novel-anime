@@ -1,43 +1,28 @@
 <div class="container">
     <h2 class="title">トップページ</h2>
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-4">
         </div>
         <br>
-        <div class="col-md-3">
-            <br>
-            <br>
-            <h3>
-                <%= link_to "ユーザー一覧へ", admin_users_path %>
-            </h3>
-            <br>
-            <br>
-            <h3>
-                <%= link_to "小説一覧へ", admin_novels_path %>
-            </h3>
-            <br>
-            <br>
-            <h3>
-                <%= link_to "小説追加へ", new_admin_novel_path %>
-            </h3>
-        </div>
-        <br>
-        <div class="col-md-3">
-            <br>
-            <br>
-            <h3>
-                <%= link_to "ジャンル追加へ", new_admin_genre_path %>
-            </h3>
-            <br>
-            <br>
-            <h3>
-                <%= link_to "出版社追加へ", new_admin_label_path %>
-            </h3>
-            <br>
-            <br>
-            <h3>
-                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-            </h3>
+        <div class="col-md-4">
+            <div class="menu">
+                <%= link_to "ユーザー一覧へ", admin_users_path, class: "btn btn-default col-md-12" %>
+            </div>
+            <div class="menu">
+                <%= link_to "小説一覧へ", admin_novels_path, class: "btn btn-default col-md-12" %>
+            </div>
+            <div class="menu">
+                <%= link_to "小説追加へ", new_admin_novel_path, class: "btn btn-default col-md-12" %>
+            </div>
+            <div class="menu">
+                <%= link_to "ジャンル追加へ", new_admin_genre_path, class: "btn btn-default col-md-12" %>
+            </div>
+            <div class="menu">
+                <%= link_to "出版社追加へ", new_admin_label_path, class: "btn btn-default col-md-12" %>
+            </div>
+            <div class="menu">
+                <%= link_to "ログアウト", destroy_admin_session_path, class: "btn btn-default col-md-12", method: :delete %>
+            </div>
         </div>
         </div>
         <div class="col-md-4">
