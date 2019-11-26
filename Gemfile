@@ -75,6 +75,10 @@ gem 'cocoon'
 gem 'font-awesome-rails'
 gem 'bootstrap', '~> 4.1.1'
 
+group :production do
+  gem 'mysql2'
+end
+
 
 
 
