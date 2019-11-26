@@ -1,5 +1,5 @@
 class Admin::NovelsController < ApplicationController
-    # before_action :authenticate_admin!
+    before_action :authenticate_admin!
     PER = 10
     def new
         @novel = Novel.new
