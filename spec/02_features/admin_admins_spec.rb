@@ -1,13 +1,13 @@
 require 'rails_helper'
-RSpec.describe 'ログイン、ログアウト', type: :feature do
-    before "user作成" do
-        User.create!(email: 'test@example.com', password: '012345', name: "テスト太郎" )
+RSpec.describe '管理者ログイン、ログアウト', type: :feature do
+    before "admin作成" do
+        Admin.create!(email: 'admin@example.com', password: '123456')
     end
-    scenario 'ログイン、ログアウト' do
+    scenario 'ログイン,ログアウト' do
         # ログインページに移動
-        visit user_session_path
-        fill_in 'user_email', with: 'test@example.com'
-        fill_in 'user_password', with: '012345'
+        visit admin_session_path
+        fill_in 'admin_email', with: 'admin@example.com'
+        fill_in 'admin_password', with: '123456'
         click_on 'ログインする'
         # ログイン後の画面にはログアウトリンクが必ず存在する
         expect(page).to have_content 'ログアウト'
