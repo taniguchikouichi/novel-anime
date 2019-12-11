@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe '管理者ログイン、ログアウト', type: :feature do
+RSpec.describe 'Admin', type: :feature do
     before "admin作成" do
         Admin.create!(email: 'admin@example.com', password: '123456')
     end

@@ -28,7 +28,6 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index, :edit, :update, :destroy]
     end
     get  'top' => 'homes#top'
-    get  'out/users/:id', to: 'users#out', as: :out
     get  'rank' => 'novels#ranks'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
