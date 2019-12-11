@@ -16,7 +16,7 @@
         <br>
         <br>
         <div class="form">
-            <%= link_to "削除する", admin_out_path(@user) %>
+            <%= link_to "削除する", admin_user_path(@user.id), method: :delete, data: {confirm: '本当に削除しますか？'}%>
         </div>
     <% end %>
 </div>
