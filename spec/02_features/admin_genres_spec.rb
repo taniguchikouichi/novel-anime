@@ -3,12 +3,13 @@ RSpec.describe 'AdminGenre', type: :feature do
     before "admin作成" do
         Admin.create!(email: 'admin@example.com', password: '123456')
     end
-    scenario 'ジャンル追加、削除、エラー、サクセスメッセージの確認' do
+    scenario 'ジャンル追加、削除、動作確認' do
         # 管理者ログイン
         visit admin_session_path
         fill_in 'admin_email', with: 'admin@example.com'
         fill_in 'admin_password', with: '123456'
         click_on 'ログインする'
+        # ジャンル追加ページに遷移
         click_on 'ジャンル追加へ'
         fill_in 'genre_genre_name', with: 'test'
         click_on 'ジャンルを作成する'
