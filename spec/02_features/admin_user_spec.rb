@@ -17,6 +17,14 @@ RSpec.describe 'AdminUser', type: :feature do
         expect(page).to have_content "ユーザーを編集しました"
         visit admin_users_path
         click_on '編集画面へ'
+        # user_nameを空欄で保存
+        fill_in 'user_name', with: ''
+        click_on '保存する'
+        # エラーメッセージの表示
+        expect(page).to have_content "名前を入力してください"
+        visit admin_users_path
+        click_on '編集画面へ'
+        # ユーザーの削除処理
         click_on '削除する'
         # サクセスメッセージの表示
         expect(page).to have_content "ユーザーを削除しました"
