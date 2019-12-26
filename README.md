@@ -1,24 +1,19 @@
-# README
+## Novel-Anime
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ 
+ ## 簡単な説明
 
-Things you may want to cover:
+アニメ化している小説を探せる検索アプリです。検索してurlから公式サイトに飛べるようになっており、レビューの投稿、5段階の評価、ランキング表示ができます。
 
-* Ruby version
+## 機能
+・検索機能（ジャンルの選択可）   
+・評価機能  
+・お気に入り機能（非同期）  
+・ランキング機能（評価順、お気に入り数順）  
 
-* System dependencies
+## 使い方
 
-* Configuration
+## テスト
+テストにはRSpecを使用しており現在は全体の約60%がテストできています。
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 作者
