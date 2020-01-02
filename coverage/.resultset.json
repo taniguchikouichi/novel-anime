@@ -95,6 +95,87 @@
         1,
         null
       ],
+      "/vagrant/novel-anime/app/models/favorite.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/vagrant/novel-anime/app/models/genre_combination.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/vagrant/novel-anime/app/models/genre.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        null
+      ],
+      "/vagrant/novel-anime/app/models/label.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/vagrant/novel-anime/app/models/novel.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        2,
+        null,
+        null,
+        1,
+        2,
+        null,
+        null,
+        1,
+        2,
+        null,
+        null,
+        1,
+        2,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/vagrant/novel-anime/app/models/review.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
       "/vagrant/novel-anime/app/controllers/admins/sessions_controller.rb": [
         null,
         null,
@@ -158,55 +239,6 @@
         null,
         null,
         null,
-        null
-      ],
-      "/vagrant/novel-anime/app/models/novel.rb": [
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        null,
-        1,
-        2,
-        null,
-        null,
-        1,
-        2,
-        null,
-        null,
-        1,
-        2,
-        null,
-        null,
-        1,
-        2,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/vagrant/novel-anime/app/models/genre.rb": [
-        1,
-        1,
-        1,
-        1,
-        1,
         null
       ],
       "/vagrant/novel-anime/app/controllers/admin/homes_controller.rb": [
@@ -285,18 +317,6 @@
         null,
         null
       ],
-      "/vagrant/novel-anime/app/models/label.rb": [
-        1,
-        1,
-        1,
-        null
-      ],
-      "/vagrant/novel-anime/app/models/genre_combination.rb": [
-        1,
-        1,
-        1,
-        null
-      ],
       "/vagrant/novel-anime/app/controllers/admin/novels_controller.rb": [
         1,
         1,
@@ -367,20 +387,6 @@
         null,
         null
       ],
-      "/vagrant/novel-anime/app/models/review.rb": [
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        0,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
       "/vagrant/novel-anime/app/controllers/admin/users_controller.rb": [
         1,
         1,
@@ -419,12 +425,6 @@
         1,
         2,
         null,
-        null
-      ],
-      "/vagrant/novel-anime/app/models/favorite.rb": [
-        1,
-        1,
-        1,
         null
       ],
       "/vagrant/novel-anime/app/controllers/users/sessions_controller.rb": [
@@ -1056,6 +1056,6 @@
         0
       ]
     },
-    "timestamp": 1576242300
+    "timestamp": 1577967960
   }
 }
