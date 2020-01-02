@@ -6,10 +6,6 @@ class Admin::UsersController < ApplicationController
         @users = User.page(params[:page]).per(PER)
     end
 
-    def show
-        @user = User.find(params[:id])
-    end
-
     def edit
         @user = User.find(params[:id])
     end
