@@ -14,6 +14,8 @@
 ## 使い方
 
 ## テスト
-テストにはRSpecを使用しており現在は全体の約60%がテストできています。
+テストにはRSpecを使用しており現在は全体では約60%、modelテストは94%がテストできています。  
+![テスト](https://user-images.githubusercontent.com/53788704/71664345-02012900-2d9c-11ea-857a-013eb768d74d.png)  
 
 ## 作者
+mail to:06100160ktkt@gmail.com
