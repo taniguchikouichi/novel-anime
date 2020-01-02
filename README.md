@@ -4,7 +4,7 @@
  ## 簡単な説明
 
 アニメ化している小説を探せる検索アプリです。検索してurlから公式サイトに飛べるようになっており、レビューの投稿、5段階の評価、ランキング表示ができます。  
-![novel-anime](https://user-images.githubusercontent.com/53788704/71666646-244b7480-2da5-11ea-9cda-aae1948017b5.png)
+![novel-anime](https://user-images.githubusercontent.com/53788704/71666825-fd417280-2da5-11ea-9589-4dc3e53e9329.png)
 
 ## 機能
 ・検索機能（複数ジャンルの選択可）   
