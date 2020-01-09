@@ -71,18 +71,21 @@
     </div>
         
     <hr>
-    <h4>ジャンル</h4>
-    <P class="p-box">
+    <P>
         <% @novel.genres.each do |genre|%>
             <%= genre.genre_name %>
         <% end %>
     </p>
+    <hr>
+    <p>
+        <%= @novel.label.label_name %>
+    </p>
+    <hr>
     <p class="p-text">公式サイト</p>
     <%= text_url_to_link(h(@novel.url)).html_safe %>            
         <br>
         <br>
         <h5>あらすじ</h5>
-        
         <p class="card-text"><%= @novel.explanation %></p>
 </div>
 <br>
