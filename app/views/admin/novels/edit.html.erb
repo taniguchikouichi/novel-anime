@@ -2,8 +2,4 @@
     <br>
     <h2 class="title">小説編集</h2>
     <%= render 'form', novel: @novel %>
-    
-        <div class="form">
-            <%= link_to "削除する", admin_novel_path(@novel.id), method: :delete, class: 'btn' %>
-        </div>
 </div>  
