@@ -35,6 +35,9 @@
             </div>
         <div class="form">
             <%= f.submit '保存する' %>
+            <%= link_to admin_novel_path(@novel.id), method: :delete do %>
+                <button type="button" class="btn-default">削除する</button>
+            <% end %>
         </div>
     <% end %>
 </div>
