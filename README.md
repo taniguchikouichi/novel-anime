@@ -22,7 +22,7 @@
 ・管理者 test@test / novani  
 ・テストユーザー　nnn@nnn / 111111  
 
-アプリURL http://18.177.230.185/
+アプリURL http://18.177.230.185/  
 ・管理者ログインURL http://18.177.230.185/admins/sign_in
 
 
