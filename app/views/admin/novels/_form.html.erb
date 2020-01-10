@@ -1,43 +1,39 @@
 
-        <%= form_for([:admin, novel]) do |f| %>
-        <%= render 'layouts/error_messages', model: f.object %>
-            <div class="field">
-                <div>
-                    <p>レーベル名</p>
-                    <%= f.select :label_id, Label.all.map {|l| [l.label_name, l.id]} %>
-                </div>
-                <br>
-                <div>
-                    <P>ジャンル名</P>
-                    <%= f.fields_for :genre_combinations, novel.genre_combinations.build do |genre_combination| %>
-                        <%= render 'genre_combination_fields', f: genre_combination %>
-                    <% end %>
-                    <div class="links">
-                        <%= link_to_add_association 'ジャンル追加欄',f, :genre_combinations %>
-                    </div>
-
-                </div>
-                <br>
-                <div>
-                    <p>公式サイトurl</p>
-                    <%= f.text_field :url %>
-                </div>
-                <br>
-                <div>
-                    <p>タイトル</p>
-                    <%= f.text_field :title %>
-                </div>
-                <br>
-                <div>
-                    <P>説明</p>
-                    <%= f.text_area :explanation %>
-                </div>
+<%= form_for([:admin, novel]) do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
+        <div class="field">
+            <div>
+                <p>レーベル名</p>
+                <%= f.select :label_id, Label.all.map {|l| [l.label_name, l.id]} %>
             </div>
-        <div class="form">
-            <%= f.submit '保存する' %>
-            <%= link_to admin_novel_path(@novel.id), method: :delete do %>
-                <button type="button" class="btn-default">削除する</button>
-            <% end %>
+            <br>
+            <div>
+                <P>ジャンル名</P>
+                <%= f.fields_for :genre_combinations, novel.genre_combinations.build do |genre_combination| %>
+                    <%= render 'genre_combination_fields', f: genre_combination %>
+                <% end %>
+                <div class="links">
+                    <%= link_to_add_association 'ジャンル追加欄',f, :genre_combinations %>
+                </div>
+
+            </div>
+            <br>
+            <div>
+                <p>公式サイトurl</p>
+                <%= f.text_field :url %>
+            </div>
+            <br>
+            <div>
+                <p>タイトル</p>
+                <%= f.text_field :title %>
+            </div>
+            <br>
+            <div>
+                <P>説明</p>
+                <%= f.text_area :explanation %>
+            </div>
         </div>
-    <% end %>
-</div>
+    <div class="form">
+        <%= f.submit '保存する' %>
+    </div>
+<% end %>

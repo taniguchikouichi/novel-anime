@@ -1,5 +1,11 @@
 <div class="container">
     <br>
     <h2 class="title">小説編集</h2>
-    <%= render 'form', novel: @novel %>
+    <div class="form">
+        <%= render 'form', novel: @novel %>
+            <br>
+            <%= link_to admin_novel_path(@novel.id), method: :delete do %>
+            <button type="button" class="btn-default">削除する</button>
+        <% end %>
+    </div>
 </div>  
